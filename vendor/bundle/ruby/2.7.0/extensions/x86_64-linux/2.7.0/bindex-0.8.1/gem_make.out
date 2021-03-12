@@ -1,0 +1,15 @@
+current directory: /root/rails_v6.1.3/kkatayose/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+/root/.rbenv/versions/2.7.2/bin/ruby -I /root/.rbenv/versions/2.7.2/lib/ruby/2.7.0 -r ./siteconf20210225-2422-nbnd2b.rb extconf.rb
+creating Makefile
+
+current directory: /root/rails_v6.1.3/kkatayose/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /root/rails_v6.1.3/kkatayose/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.so
+
+current directory: /root/rails_v6.1.3/kkatayose/vendor/bundle/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/bin/install -c -m 0755 cruby.so ./.gem.20210225-2422-1nacv6m/skiptrace/internal

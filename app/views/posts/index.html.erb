@@ -1,15 +1,8 @@
-<%
-  posts = [
-    "テスト投稿",
-    "投稿一覧ページ作成中！"
-  ]
-%>
-
 <div class="main posts-index">
   <div class="container">
-        <% posts.each do |post| %>
+        <% @posts.each do |post| %>
       <div class="posts-index-item">
-        <%= post %>
+        <%= link_to(post.content, "/posts/#{post.id}") %>
       </div>
     <% end %>
   </div>

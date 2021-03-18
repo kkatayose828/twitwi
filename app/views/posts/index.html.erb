@@ -3,6 +3,7 @@
         <% @posts.each do |post| %>
       <div class="posts-index-item">
         <%= link_to(post.content, "/posts/#{post.id}") %>
+        <%= paginate @posts %>
       </div>
     <% end %>
   </div>

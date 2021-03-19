@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
     def index
-        @posts = Post.all.order("created_at DESC").page(params[:page].per(4)
-        @posts = Post.all.limit(5)
+        @posts = Post.all.order("created_at DESC").page(params[:page]).per(20)
     end
     
     def show
@@ -11,4 +10,16 @@ class PostsController < ApplicationController
     def new
     end
 
-end
+    def create
+        @post = Post.new(
+            title: params[:title],
+            content: params[:content],
+            user_id: 1
+           )
+        if @post.save
+          redirect_to("/posts/index")
+        else
+          render("posts/new")
+        end
+     end
+  end

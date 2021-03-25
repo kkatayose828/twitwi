@@ -1,31 +1,34 @@
 class PostsController < ApplicationController
     def index
-        @posts = Post.all.order("created_at DESC").page(params[:page]).per(20)
+      @posts = Post.all.order("created_at DESC").page(params[:page]).per(20)
     end
     
     def show
-        @post = Post.find_by(id:params[:id])
+      @post = Post.find_by(id:params[:id])
     end
 
     def new
+      @post = Post.new
     end
 
     def create
-        @post = Post.new(
-            title: params[:title],
-            content: params[:content],
-            user_id: 2
-           )
-        if @post.save
+      @post = Post.new(
+          title: params[:title],
+          content: params[:content],
+          user_id: 3
+          )
+      if @post.save
+          flash[:notice] = "スレッドを作成しました"
           redirect_to("/posts/index")
-        else
+      else
           render("posts/new")
-        end
+      end
     end
 
     def destroy
       @post = Post.find_by(id: params[:id])
       @post.destroy
+      flash[:notice] = "スレッドを削除しました"
       redirect_to("/posts/index")
-    end
+  end
 end

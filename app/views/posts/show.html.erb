@@ -4,6 +4,9 @@
       <h1>
         <%= @post.title %>
       </h1>
+      <p>
+        <%= @user.last_name %> <%= @user.first_name %>
+      </p>
       <h2>
         <%= @post.content %>
       </h2>
@@ -12,7 +15,9 @@
           <%= @post.created_at %>
       </h3>
       <div class="post-menus">
-        <%= link_to("削除", "/posts/#{@post.id}/destroy",{method: "post"}) %>
+        <% if session[:user_id] == @post.user_id %>
+          <%= link_to("削除", "/posts/#{@post.id}/destroy",{method: "post"}) %>
+        <% end %>
       </div>
     </div>
   </div>

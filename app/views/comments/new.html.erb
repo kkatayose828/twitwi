@@ -1,5 +1,18 @@
-<%= form_for [@post, @comment] do |f| %>
-    <%= f.text_field :content %>
-    <br>
-    <%= f.submit 'コメントする' %>
-  <% end %>
+<div class="commentss-new">
+  <div class="container">
+    <h1 class="form-heading">コメント投稿</h1>
+    <%= form_tag("/posts/:id/comments/create") do %>
+      <div class="form">
+        <div class="form-body">
+          <% @comment.errors.full_messages.each do |message| %>
+            <div class="form-error">
+              <%= message %>
+            </div>
+          <% end %>
+          <textarea name="content" cols=40 rows=4 maxlength=200 wrap=hard><%= @comment.content %></textarea>
+          <input type="submit" value="投稿">
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

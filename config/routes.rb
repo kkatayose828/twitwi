@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get "comments/new" => "comments#new"
-  post "comments/create" => "comments/create"
+  get "posts/:id/comments/new" => "comments#new"
+  post "posts/:id/comments/create" => "comments#create"
 
   get "login" => "users#login_form"
   post "login" => "users#login"

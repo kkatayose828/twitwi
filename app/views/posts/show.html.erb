@@ -16,9 +16,12 @@
         </h3>
       <div class="post-menus">
         <% if session[:user_id] == @post.user_id %>
-          <%= link_to("削除", "/posts/#{@post.id}/destroy",{method: "post"}) %>
+          <%= link_to("投稿削除", "/posts/#{@post.id}/destroy",{method: "post"}) %>
         <% end %>
       </div>
+      <div>
+        <%= link_to("コメントする", "/posts/#{@post.id}/comments/new") %>
+      </div>    
       <div class="comment-index">
         <% @post.comments.each do |comment| %>
           <div>
